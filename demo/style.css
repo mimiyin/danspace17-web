@@ -1,0 +1,31 @@
+body {
+  background: black;
+  margin: 0px;
+}
+canvas {
+  outline: none;
+}
+
+input {
+  width: 200px;
+  margin-bottom: .25em;
+}
+
+#p5_loading {
+  position: absolute;
+  width: 100vw;
+  text-align: center;
+  top: 50vh;
+  font-family: Arial;
+  font-size: 2em;
+  color: rgba(255, 255, 255, .125);
+}
+
+/*#sidebar {
+  float: left;
+  width : 200px;
+}
+
+canvas {
+  float: right;
+}*/

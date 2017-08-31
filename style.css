@@ -1,0 +1,240 @@
+body {
+  background: #fafafa;
+  margin: 0 auto auto 200px;
+  height: 100vh;
+  font-family: "Georgia", "Times New Roman", "serif";
+
+}
+
+#zoom {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+.size {
+  cursor: pointer;
+  padding: 0 5px 0 0;
+}
+
+.size:nth-child(1) {
+  font-size: 1em;
+}
+
+.size:nth-child(2) {
+  font-size: 1.5em;
+}
+
+.size:nth-child(3) {
+  font-size: 2em;
+}
+
+#text {
+  width: 1000px;
+  -webkit-transition: transform 500ms ease-out;
+  -moz-transition: transform 500ms ease-out;
+  -ms-transition: transform 500ms ease-out;
+  -o-transition: transform 500ms ease-out;
+  transition: transform 500ms ease-out;
+}
+
+body.quarter #text, body.half #text {
+  display: flex;
+  align-items: flex-start;
+}
+
+body.quarter #text {
+  width: 6000px;
+  transform: scale(0.25) translate(-160%, -140%);
+}
+
+body.half #text {
+  width: 6000px;
+  transform: scale(0.5) translate(-50%, -45%);
+}
+
+.page {
+  background: white;
+  width: 600px;
+  border: 1px #f3f3f3 solid;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, .125);
+  margin: 2em 0;
+  padding: 20px 50px;
+  min-height: 100vh;
+}
+
+body.half .page, body.quarter .page {
+  margin: 2em 15em 2em 0;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+body.half .page:hover, body.quarter .page:hover {
+  background: yellow;
+}
+
+.matte {
+  background: #f3f3f3;
+}
+#title {
+  font-size: 4em;
+  line-height: 1em;
+}
+#subtitle {
+  font-size: 2em;
+}
+h1 {
+  font-size: 2em;
+  line-height: 1em;
+}
+h5 {
+  font-size: 1em;
+  font-style: italic;
+  font-weight: normal;
+  background: #ec4;
+  padding: 5px;
+  -webkit-margin-before: 2.33em;
+  -moz-margin-before: 2.33em;
+  -ms-margin-before: 2.33em;
+  -webkit-margin-after: 1em;
+  -moz-margin-after: 1em;
+  -ms-margin-after: 1em;
+}
+h6 {
+  font-size: 1em;
+  font-style: italic;
+  font-weight: normal;
+  -webkit-margin-after: 1em;
+  -moz-margin-after: 1em;
+  -ms-margin-after: 1em;
+}
+p {
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+li {
+  padding: 5px 0;
+}
+ol.prompts {
+  padding: 20px 50px;
+}
+ol.arc {
+  line-height: 1.5em;
+}
+table {
+  padding: 0 0 10px 5px;
+  width: 100%;
+}
+table.sketch td {
+  width: 50%;
+  vertical-align: top;
+}
+table.sketch img {
+  width: 90%;
+}
+td.blurb {
+  font-size: 1em;
+}
+table#speed-list, table#speed-list td {
+  width: 30%;
+  padding: 5px;
+  border-collapse: collapse;
+  border-right: 5px solid white;
+}
+.pullquote {
+  font-size: 0.75em;
+  padding: 2em 5em;
+}
+#prepared {
+  text-align: center;
+}
+.sp {
+  font-size: 1em;
+  line-height: 1.2em;
+}
+a {
+  background: #66ffcc;
+  padding: 5px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+a.listen {
+  font-style: italic;
+}
+a:hover {
+  background: yellow;
+  cursor: pointer;
+}
+.double, a.video {
+  position: relative;
+  float: right;
+  left: 275px;
+  top: -150px;
+  background: none;
+  height: 0;
+}
+.double {
+  width: 250px;
+}
+.double a.video {
+  //  top: 0px;
+  left: 0px;
+}
+a.video img {
+  width: 200px;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, .125);
+}
+a img {
+  width: 580px;
+}
+
+iframe {
+  width: 100vw;
+  height: 56vw;
+}
+
+iframe.sketch {
+  width: 100vw;
+  height: 87vw;
+}
+.overlay {
+  opacity: 0;
+}
+.overlay.fadein {
+  display: block;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  -webkit-transition: opacity 2s ease-in;
+  -moz-transition: opacity 2s ease-in;
+  -ms-transition: opacity 2s ease-in;
+  -o-transition: opacity 2s ease-in;
+  transition: opacity 2s ease-in;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, .25);
+}
+.overlay.fadeout {
+  display: none;
+  -webkit-transition: display 2s ease-in;
+  -moz-transition: display 2s ease-in;
+  -ms-transition: display 2s ease-in;
+  -o-transition: display 2s ease-in;
+  transition: display 2s ease-in;
+}
+.x {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  padding: 0 5px;
+  font-family: Arial;
+  font-size: 3em;
+  font-weight: lighter;
+  color: white;
+  background: transparent;
+  cursor: pointer;
+}
