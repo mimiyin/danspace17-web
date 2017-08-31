@@ -50,7 +50,7 @@ body[scale=quarter] #text {
 
 body[scale=half] #text {
   width: 6000px;
-  transform: scale(0.5) translate(-50%, -40%);
+  transform: scale(0.5) translate(-50%, -45%);
 }
 
 .page {
@@ -193,7 +193,12 @@ a img {
   width: 580px;
 }
 
+img.diagram {
+  width: 100%;
+}
+
 iframe {
+  border: none;
   width: 100vw;
   height: 56vw;
 }
@@ -202,6 +207,7 @@ iframe.sketch {
   width: 100vw;
   height: 87vw;
 }
+
 .overlay {
   opacity: 0;
 }
