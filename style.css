@@ -38,17 +38,17 @@ body {
   transition: transform 500ms ease-out;
 }
 
-body.quarter #text, body.half #text {
+body[scale=quarter] #text, body[scale=half] #text {
   display: flex;
   align-items: flex-start;
 }
 
-body.quarter #text {
+body[scale=quarter] #text {
   width: 6000px;
   transform: scale(0.25) translate(-160%, -140%);
 }
 
-body.half #text {
+body[scale=half] #text {
   width: 6000px;
   transform: scale(0.5) translate(-50%, -45%);
 }
@@ -63,13 +63,17 @@ body.half #text {
   min-height: 100vh;
 }
 
-body.half .page, body.quarter .page {
+body[scale=half] .page, body[scale=quarter] .page {
   margin: 2em 15em 2em 0;
   flex-shrink: 0;
   cursor: pointer;
 }
 
-body.half .page:hover, body.quarter .page:hover {
+body[scale=half] .page:hover, body[scale=quarter] .page:hover {
+  background: yellow;
+}
+
+body[scale=half] .page[reading=true], body[scale=quarter] .page[reading=true] {
   background: yellow;
 }
 

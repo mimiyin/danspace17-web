@@ -1,39 +1,65 @@
 window.onload = function () {
   var as = document.getElementsByTagName('a');
-  var body = document.getElementsByTagName('body')[0];
+  var body = document.body;
   var sizes = document.getElementsByClassName('size');
   var pages = document.getElementsByClassName('page');
 
-  for(var s = 0; s < sizes.length; s++) {
+  // Keep track of which page you're on
+  setInterval(function () {
+    if (body.getAttribute('scale') == "full") {
+      for (var p = 0; p < pages.length; p++) {
+        var pg = pages[p];
+        var pstart = pg.offsetTop;
+        var pend = pstart + pg.offsetHeight;
+        var spos = body.scrollTop;
+        var margin = window.innerHeight / 3;
+        if (spos > pstart - margin && spos < pend - margin) {
+          pg.setAttribute("reading", "true");
+        }
+        else pg.setAttribute("reading", "false");
+      }
+    }
+  }, 500);
+
+  // Change the scale of the page
+  for (var s = 0; s < sizes.length; s++) {
     var sz = sizes[s];
-    sz.onclick = function(e) {
-      body.className = this.getAttribute('scale');
+    sz.onclick = function (e) {
+      body.setAttribute("scale", this.getAttribute('scale'));
+      setTimeout(function () {
+        var pg = body.querySelector("[reading=true]");
+        pg.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+          inline: "end"
+        });
+      }, 500);
     }
   }
 
-  for(var p = 0; p < pages.length; p++) {
+  // Jump to selected page in full view
+  for (var p = 0; p < pages.length; p++) {
     var pg = pages[p];
-    pg.onclick = function(e) {
-      if(body.className != "100") {
-        body.className = "100";
+    pg.onclick = function (e) {
+      if (body.getAttribute("scale") != "full") {
+        body.setAttribute("scale", "full");
         window.location.hash = "#" + this.getAttribute('id');
       }
     }
   }
 
+  // Overlay with iframe
   for (var a = 0; a < as.length; a++) {
     as[a].onclick = function (e) {
-      console.log(e);
       var overlay = document.createElement('div');
       overlay.className = "overlay fadein";
-
       var iframe = document.createElement('iframe');
       iframe.src = this.getAttribute('src');
       iframe.className = this.className;
       var x = document.createElement('div');
       x.className = 'x';
       x.textContent = 'X';
-      x.onclick = function() {
+      x.onclick = function () {
         overlay.remove();
       }
 
