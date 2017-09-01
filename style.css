@@ -77,6 +77,10 @@ body[scale=half] .page[reading=true], body[scale=quarter] .page[reading=true] {
   background: yellow;
 }
 
+body[scale=quarter] .size[scale=quarter], body[scale=half] .size[scale=half], body[scale=full] .size[scale=full] {
+  color: #ff3300;
+}
+
 .matte {
   background: #f3f3f3;
 }
