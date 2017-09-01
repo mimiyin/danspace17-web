@@ -92,10 +92,13 @@ h1 {
   line-height: 1em;
 }
 h5 {
-  font-size: 1em;
+  font-size: 1.2em;
   font-style: italic;
   font-weight: normal;
-  background: #ec4;
+  //background: #ec4;
+  //background: rgb(225,0,67);
+  background: #ff3300;
+  color: white;
   padding: 5px;
   -webkit-margin-before: 2.33em;
   -moz-margin-before: 2.33em;
