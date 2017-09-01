@@ -61,6 +61,9 @@ window.onload = function () {
       var iframe = document.createElement('iframe');
       iframe.src = this.getAttribute('src');
       iframe.className = this.className;
+      iframe.setAttribute('allowFullScreen', '');
+      iframe.setAttribute('mozallowFullScreen', '');
+      iframe.setAttribute('webkitallowFullScreen', '');
       var x = document.createElement('div');
       x.className = 'x';
       x.textContent = 'X';
