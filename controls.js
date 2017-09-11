@@ -58,6 +58,9 @@ window.onload = function () {
     as[a].onclick = function (e) {
       var overlay = document.createElement('div');
       overlay.className = "overlay fadein";
+      var blurb = document.createElement('div');
+      blurb.className = "blurb";
+      blurb.textContent = this.parentNode.parentNode.querySelector(".blurb").textContent;
       var iframe = document.createElement('iframe');
       iframe.src = this.getAttribute('src');
       iframe.className = this.className;
@@ -72,6 +75,7 @@ window.onload = function () {
       }
 
       overlay.append(iframe);
+      overlay.append(blurb);
       overlay.append(x);
       body.append(overlay);
     }

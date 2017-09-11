@@ -3,32 +3,25 @@ body {
   margin: 0 auto auto 200px;
   height: 100vh;
   font-family: "Georgia", "Times New Roman", "serif";
-
 }
-
 #zoom {
   position: fixed;
   top: 10px;
   right: 10px;
 }
-
 .size {
   cursor: pointer;
   padding: 0 5px 0 0;
 }
-
 .size:nth-child(1) {
   font-size: 1em;
 }
-
 .size:nth-child(2) {
   font-size: 1.5em;
 }
-
 .size:nth-child(3) {
   font-size: 2em;
 }
-
 #text {
   width: 1000px;
   -webkit-transition: transform 500ms ease-out;
@@ -37,22 +30,18 @@ body {
   -o-transition: transform 500ms ease-out;
   transition: transform 500ms ease-out;
 }
-
 body[scale=quarter] #text, body[scale=half] #text {
   display: flex;
   align-items: flex-start;
 }
-
 body[scale=quarter] #text {
   width: 6000px;
   transform: scale(0.25) translate(-160%, -140%);
 }
-
 body[scale=half] #text {
   width: 6000px;
   transform: scale(0.5) translate(-50%, -45%);
 }
-
 .page {
   background: white;
   width: 600px;
@@ -62,25 +51,20 @@ body[scale=half] #text {
   padding: 20px 50px;
   min-height: 100vh;
 }
-
 body[scale=half] .page, body[scale=quarter] .page {
   margin: 2em 15em 2em 0;
   flex-shrink: 0;
   cursor: pointer;
 }
-
 body[scale=half] .page:hover, body[scale=quarter] .page:hover {
   background: yellow;
 }
-
 body[scale=half] .page[reading=true], body[scale=quarter] .page[reading=true] {
   background: yellow;
 }
-
 body[scale=quarter] .size[scale=quarter], body[scale=half] .size[scale=half], body[scale=full] .size[scale=full] {
   color: #ff3300;
 }
-
 .matte {
   background: #f3f3f3;
 }
@@ -199,22 +183,18 @@ a.video img {
 a img {
   width: 580px;
 }
-
 img.diagram {
   width: 100%;
 }
-
 iframe {
   border: none;
   width: 100vw;
   height: 56vw;
 }
-
 iframe.sketch {
   width: 100vw;
   height: 87vw;
 }
-
 .overlay {
   opacity: 0;
 }
@@ -243,7 +223,7 @@ iframe.sketch {
   -o-transition: display 2s ease-in;
   transition: display 2s ease-in;
 }
-.x {
+.overlay .x, .overlay .blurb {
   position: fixed;
   top: 0px;
   right: 0px;
@@ -254,4 +234,11 @@ iframe.sketch {
   color: white;
   background: transparent;
   cursor: pointer;
+}
+.overlay .blurb {
+  font-size: 0.875em;
+  left: 10px;
+  right: auto;
+  top: 17vw;
+  width: 33vw;
 }
