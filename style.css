@@ -238,7 +238,8 @@ iframe.sketch {
 .overlay .blurb {
   font-size: 0.875em;
   top: auto;
-  right: 10px;
+  right: auto;
+  left: 10px;
   bottom: 10px;
   width: 33vw;
   background: red;
