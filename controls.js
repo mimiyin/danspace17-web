@@ -58,9 +58,6 @@ window.onload = function () {
     as[a].onclick = function (e) {
       var overlay = document.createElement('div');
       overlay.className = "overlay fadein";
-      var blurb = document.createElement('div');
-      blurb.className = "blurb";
-      blurb.textContent = this.parentNode.parentNode.querySelector(".blurb").textContent;
       var iframe = document.createElement('iframe');
       iframe.src = this.getAttribute('src');
       iframe.className = this.className;
@@ -74,10 +71,17 @@ window.onload = function () {
         overlay.remove();
       }
 
-      overlay.append(iframe);
-      overlay.append(blurb);
-      overlay.append(x);
-      body.append(overlay);
+      overlay.appendChild(iframe);
+      overlay.appendChild(x);
+      body.appendChild(overlay);
+
+      // Append instructions for sketches
+      if (this.className == "sketch") {
+        var blurb = document.createElement('div');
+        blurb.className = "blurb";
+        blurb.textContent = this.parentNode.parentNode.querySelector(".blurb").textContent;
+        overlay.appendChild(blurb);
+      }
     }
   }
 }

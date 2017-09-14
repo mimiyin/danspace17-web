@@ -1,7 +1,15 @@
+function getJsonFromUrl() {
+  var query = location.search.substr(1);
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+
 var setups = ["layout", "bach", "timbres", "rhythms", "crossings", "bnf", "echo", "trajectories", "velocity"];
-var setup = new URLSearchParams(window.location.search).get("setup");
-
-
+var su = getJsonFromUrl().setup; //new URLSearchParams(window.location.search).get("setup");
 
 // Are we striking or DJing?
 var MODE = null; //"strike";
@@ -9,93 +17,96 @@ var MODE = null; //"strike";
 var choreographies = ["mouse", "creep", "lunge", "crossings", "bnf", "echo", "trajectories", "meander"];
 var soundsets = ["bach", "synth", "percussive", "words"];
 
+// Setup parameters
+var IPS, CHOREOGRAPHY, SOUND, NUM_MOVERS, DELAY, start;
 
 // SET-UPS:
-switch (setup) {
+switch (su) {
   // Bach Mouse
   case setups[1]:
-    var IPS = [0];
-    var CHOREOGRAPHY = choreographies[0];
-    var SOUND = soundsets[0];
-    var NUM_MOVERS = 1;
-    var DELAY = 0;
-    var start = true;
+    IPS = [0];
+    CHOREOGRAPHY = choreographies[0];
+    SOUND = soundsets[0];
+    NUM_MOVERS = 1;
+    DELAY = 0;
+    start = true;
     break;
 
     // Synth Mouse
   case setups[2]:
-    var IPS = [0, 2];
-    var CHOREOGRAPHY = choreographies[0];
-    var SOUND = soundsets[1];
-    var NUM_MOVERS = 1;
-    var DELAY = 0;
-    var start = true;
+    IPS = [0, 2];
+    CHOREOGRAPHY = choreographies[0];
+    SOUND = soundsets[1];
+    NUM_MOVERS = 1;
+    DELAY = 0;
+    start = true;
     break;
 
     // Percussive Mouse
   case setups[3]:
-    var IPS = [0, 2];
-    var CHOREOGRAPHY = choreographies[0];
-    var SOUND = soundsets[2];
-    var NUM_MOVERS = 1;
-    var DELAY = 0;
-    var start = true;
+    IPS = [0, 2];
+    CHOREOGRAPHY = choreographies[0];
+    SOUND = soundsets[2];
+    NUM_MOVERS = 1;
+    DELAY = 0;
+    start = true;
     break;
 
     // CROSSINGS
   case setups[4]:
-    var CHOREOGRAPHY = choreographies[3];
-    var SOUND = soundsets[2];
-    var NUM_MOVERS = 1;
-    var DELAY = 0;
-    var start = false;
+    CHOREOGRAPHY = choreographies[3];
+    SOUND = soundsets[2];
+    NUM_MOVERS = 1;
+    DELAY = 0;
+    start = false;
     break;
 
     // BNF
   case setups[5]:
-    var CHOREOGRAPHY = choreographies[4];
-    var SOUND = soundsets[1];
-    var NUM_MOVERS = 1;
-    var DELAY = 0;
-    var start = false;
+    CHOREOGRAPHY = choreographies[4];
+    SOUND = soundsets[1];
+    NUM_MOVERS = 1;
+    DELAY = 0;
+    start = false;
     break;
 
     // ECHO
   case setups[6]:
-    var IPS = [0];
-    var CHOREOGRAPHY = choreographies[5];
-    var SOUND = soundsets[0];
-    var NUM_MOVERS = 2;
-    var DELAY = 500;
-    var start = false;
+    IPS = [0];
+    CHOREOGRAPHY = choreographies[5];
+    SOUND = soundsets[0];
+    NUM_MOVERS = 2;
+    DELAY = 500;
+    start = false;
     break;
 
     // TRAJECTORIES
   case setups[7]:
-    var CHOREOGRAPHY = choreographies[6];
-    var SOUND = soundsets[1];
-    var NUM_MOVERS = 2;
-    var DELAY = 0;
-    var start = false;
+    IPS = [0];
+    CHOREOGRAPHY = choreographies[6];
+    SOUND = soundsets[1];
+    NUM_MOVERS = 2;
+    DELAY = 0;
+    start = false;
     break;
 
     // VELOCITY
   case setups[8]:
-    var MODE = "strike";
-    var words = ["Yes", "Probably/Not", "No/Never", "Maybe/So"];
-    var IPS = [0, 1, 2, 3];
-    var CHOREOGRAPHY = choreographies[0];
-    var SOUND = soundsets[3];
-    var NUM_MOVERS = 1;
-    var DELAY = 0;
-    var start = false;
+    MODE = "strike";
+    words = ["Yes", "Probably/Not", "No/Never", "Maybe/So"];
+    IPS = [0, 1, 2, 3];
+    CHOREOGRAPHY = choreographies[0];
+    SOUND = soundsets[3];
+    NUM_MOVERS = 1;
+    DELAY = 0;
+    start = false;
     break;
 
   default:
-    var IPS = [0, 1, 2, 3];
-    var CHOREOGRAPHY = choreographies[7];
-    var SOUND = null;
-    var NUM_MOVERS = 6;
-    var DELAY = 3000;
-    var start = true;
+    IPS = [0, 1, 2, 3];
+    CHOREOGRAPHY = choreographies[7];
+    SOUND = null;
+    NUM_MOVERS = 6;
+    DELAY = 3000;
+    start = true;
 }
