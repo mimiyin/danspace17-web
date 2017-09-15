@@ -1,8 +1,8 @@
 window.onload = function () {
-  var as = document.getElementsByTagName('a');
   var body = document.body;
   var sizes = document.getElementsByClassName('size');
   var pages = document.getElementsByClassName('page');
+  var as = body.querySelectorAll("[type=overlay]");
 
   // Keep track of which page you're on
   setInterval(function () {
