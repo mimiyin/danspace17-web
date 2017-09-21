@@ -39,8 +39,7 @@ window.onload = function () {
     pg.onclick = function (e) {
       if (body.getAttribute("scale") != "full") {
         body.setAttribute("scale", "full");
-        console.log(this.getAttribute('id'));
-        window.location.hash = "#" + this.getAttribute('id');
+        window.location.hash = this.getAttribute('id');
         var thispg = this;
         setTimeout(function () {
           thispg.scrollIntoView({
